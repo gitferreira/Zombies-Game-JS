@@ -11,13 +11,13 @@ const bigScoreEl = document.querySelector("#bigScoreEl");
 const startGameBtn = document.querySelector("#startGameBtn");
 const modalEl = document.querySelector("#modalEl");
 const bgm = document.getElementById("bgm")
-bgm.volume = 0.6
+bgm.volume = 0.2
 const fireball = document.getElementById("fireball")
-fireball.volume = 0.5
+fireball.volume = 0.2
 const zombieSound = document.getElementById("zombieSound")
-zombieSound.volume = 0.4
+zombieSound.volume = 0.1
 const splash = document.getElementById("splash")
-splash.volume = 0.4
+splash.volume = 0.05
 const keys = []
 
 const player = {
@@ -46,30 +46,30 @@ const playerBg = {
 }
 
 const playerSprite = new Image();
-playerSprite.src = "/images/Player.png";
+playerSprite.src = "./images/Player.png";
 
 const background = new Image();
-background.src = "/images/unknown1.png";
+background.src = "./images/unknown1.png";
 
 const playerBackground = new Image();
-playerBackground.src = "/images/fondo3.png";
+playerBackground.src = "./images/fondo3.png";
 
 //Load enemies images
 const images = {};
 images.enemies = new Image();
-images.enemies.src = "/images/zombie_0.png";
+images.enemies.src = "./images/zombie_0.png";
 
 const explosions = {};
 explosions.explosions = new Image();
-explosions.explosions.src = "/images/explosion.png"
+explosions.explosions.src = "./images/explosion.png"
 
 const blood = {};
 blood.blood = new Image();
-blood.blood.src = "/images/blood2.png"
+blood.blood.src = "./images/blood2.png"
 
 const civilians = {}
 civilians.civilians = new Image();
-civilians.civilians.src = "/images/mujer2.png"
+civilians.civilians.src = "./images/mujer2.png"
 
 
 const numberOfCivilians= Math.random()*(2 - 1) + 1;
