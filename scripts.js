@@ -11,9 +11,9 @@ const bigScoreEl = document.querySelector("#bigScoreEl");
 const startGameBtn = document.querySelector("#startGameBtn");
 const modalEl = document.querySelector("#modalEl");
 const bgm = document.getElementById("bgm")
-bgm.volume = 0.2
+bgm.volume = 0.15
 const fireball = document.getElementById("fireball")
-fireball.volume = 0.2
+fireball.volume = 0.15
 const zombieSound = document.getElementById("zombieSound")
 zombieSound.volume = 0.1
 const splash = document.getElementById("splash")
@@ -83,7 +83,7 @@ class Civilians {
 		this.frameY = 4;
 		this.x = Math.random() * (300 - 150) + 150;
 		this.y = canvas.height;
-		this.speed = Math.random()* (3 - 0.5) + 0.5;
+		this.speed = Math.random()* (4 - 0.5) + 0.5;
 		
 	}
 	draw(){
@@ -98,8 +98,8 @@ class Civilians {
 		
 	}
 }
-const numberOfEnemies = Math.random()*(10 - 8) + 8;
-
+const numberOfEnemies = Math.random()*(10 - 3) + 3;
+const numberOfEnemies2 = Math.random()*(50 - 30) + 30;
 
 class Enemies {
 	constructor(){
@@ -132,6 +132,15 @@ function spawnEnemies(){
 			enemies.push(new Enemies());
 		}
 	},5000)
+}
+
+function spawnEnemies2(){
+	setInterval(()=> {
+
+	   for (i = 0; i < numberOfEnemies2; i++){
+		   enemies.push(new Enemies());
+	   }
+   },52000)
 }
 
 
@@ -495,7 +504,7 @@ function animate(){
 						 particles.push(new Particle(civilian.x -200, civilian.y -150, 500, 500, 0, 0))
 						 console.log("dead")
 						 civiliansKilled++
-						 if (civiliansKilled > 10){
+						 if (civiliansKilled > 25){
 							cancelAnimationFrame(animationId)
 							modalEl.style.display = "flex"
 							bigScoreEl.innerHTML = score
@@ -582,6 +591,7 @@ startGameBtn.addEventListener("click", () => {
 	modalEl.style.display = "none"
 	startAnimating(30);
 	spawnEnemies();
+	spawnEnemies2()
 	spawnCivilians()
 	init()
 	score = 0
