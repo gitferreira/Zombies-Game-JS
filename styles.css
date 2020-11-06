@@ -2,7 +2,7 @@
     overflow: hidden;
 }
 body {
-    background: url("./images/startBg.png") no-repeat;
+    background: url("../images/startBg.png") no-repeat;
    
     background-size: cover;
 } 
