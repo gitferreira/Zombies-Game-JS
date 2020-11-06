@@ -2,5 +2,7 @@
     overflow: hidden;
 }
 body {
-    background: tomato;
-}
+    background: url("/images/startBg.png") no-repeat;
+   
+    background-size: cover;
+} 

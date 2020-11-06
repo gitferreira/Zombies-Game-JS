@@ -28,7 +28,7 @@ const player = {
 	height: 249.125,
 	frameX: 0,
 	frameY: 2,
-	speed: 10,
+	speed: 12,
 	moving: false, 
 
 }
@@ -99,7 +99,9 @@ class Civilians {
 	}
 }
 const numberOfEnemies = Math.random()*(10 - 3) + 3;
-const numberOfEnemies2 = Math.random()*(50 - 30) + 30;
+const numberOfEnemies2 = Math.random()*(70 - 60) + 60;
+
+const lockFrame = true;
 
 class Enemies {
 	constructor(){
@@ -109,7 +111,7 @@ class Enemies {
 		this.frameY = 0;
 		this.x = canvas.width;
 		this.y = Math.random()* (700 - 300) + 300 ;
-		this.speed = Math.random()* (4 - 0.5) + 1;
+		this.speed = Math.random()* (4 - 2) + 2;
 		this.hp = 1;
 	}
 	draw(){
@@ -320,6 +322,12 @@ window.addEventListener("keyup", function(e){
 });
 
 
+
+
+	
+
+
+
 function movePlayer(){
 	//TOP
 	if (keys[87] && player.y > 0){
@@ -454,7 +462,23 @@ function animate(){
 				enemy.update()
 
 				const dist = Math.hypot(player.x + 100 - enemy.x , player.y + 75  - enemy.y)
-				if (dist  < 50){ 
+				
+				if (dist >= 100 && dist <= 150 && enemy.y > canvas.height/2) {
+					
+					
+					enemy.y += enemy.speed/2;
+					enemy.x -= enemy.speed/2;
+
+				}
+				else if (dist >= 100 && dist <= 150 && enemy.y <canvas.height/2) {
+					
+					enemy.y -= enemy.speed/2;
+					enemy.x += enemy.speed/2;
+
+				}
+				
+				else if (dist  < 50){ 
+
 					
 					enemies.splice(index, 1)
 					particles.push(new Particle(enemy.x - 130, enemy.y - 70, 500, 500, 0, 0))
@@ -499,6 +523,7 @@ function animate(){
 					const dist = Math.hypot(civilian.x - enemy.x - 100, civilian.y - enemy.y )
 					
 					if (dist  < 60){   
+
 						 civiliansArray.splice(civilianIndex, 1)
 						//  deadCivilians.push(new DeadCivilian(civilian.x, civilian.y, 80, 80, 0, 4))
 						 particles.push(new Particle(civilian.x -200, civilian.y -150, 500, 500, 0, 0))
