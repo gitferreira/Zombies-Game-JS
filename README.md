@@ -6,7 +6,7 @@ Defend the civilians who are escaping from the endless hordes of zombies. Crush 
 
 Pure vanilla JavaScript game made with Canva.
 
-![ironotes-home](ironotes.JPG)
+![ironotes-home](mir.JPG)
 
 ## Start the app 🚀
 
